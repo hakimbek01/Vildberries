@@ -36,15 +36,15 @@ class _SearchState extends State<Search> {
       appBar: AppBar(
         backgroundColor: Colors.purple,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(20),
+          preferredSize: const Size.fromHeight(20),
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10)
             ),
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
                 Expanded(
@@ -53,10 +53,10 @@ class _SearchState extends State<Search> {
                       border: InputBorder.none,
                       prefixIcon: IconButton(
                         onPressed: (){},
-                        icon: Icon(CupertinoIcons.search,color: Colors.grey,),
+                        icon: const Icon(CupertinoIcons.search,color: Colors.grey,),
                       ),
                       hintText: "Search",
-                      hintStyle: TextStyle(color: Colors.grey),
+                      hintStyle: const TextStyle(color: Colors.grey),
                     ),
                   ),
                 ),
@@ -65,11 +65,11 @@ class _SearchState extends State<Search> {
                   children: [
                     IconButton(
                       onPressed: (){},
-                      icon: Icon(CupertinoIcons.mic,color: Colors.grey,),
+                      icon: const Icon(CupertinoIcons.mic,color: Colors.grey,),
                     ),
                     IconButton(
                       onPressed: (){},
-                      icon: Icon(Icons.enhance_photo_translate_outlined,color: Colors.grey,),
+                      icon: const Icon(Icons.enhance_photo_translate_outlined,color: Colors.grey,),
                     )
                   ],
                 )
@@ -80,9 +80,9 @@ class _SearchState extends State<Search> {
         elevation: 0,
       ),
       body: GridView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
         itemCount: categories.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           childAspectRatio: 1.2/1.2,
           mainAxisSpacing: 7,
@@ -99,7 +99,7 @@ class _SearchState extends State<Search> {
               children: [
                 CachedNetworkImage(
                   imageUrl: "https://cdn1.ozone.ru/s3/multimedia-w/6564316286.jpg",
-                  errorWidget: (context, url, error) => Center(child: Icon(Icons.warning,color: Colors.yellow,),),
+                  errorWidget: (context, url, error) => const Center(child: Icon(Icons.warning,color: Colors.yellow,),),
                   fit: BoxFit.cover,
                 ),
                 Container(
@@ -118,10 +118,10 @@ class _SearchState extends State<Search> {
                   ),
                 ),//buni
                 Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: Text(categories[index],style: TextStyle(color: Colors.white,),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    child: Text(categories[index],style: const TextStyle(color: Colors.white,),maxLines: 2,overflow: TextOverflow.ellipsis,),
                   ),
                 ),
               ],

@@ -38,30 +38,29 @@ class _HomeState extends State<Home> {
   ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: (){},
-          icon: Icon(CupertinoIcons.bell_fill),
+          icon: const Icon(CupertinoIcons.bell_fill),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white
         ),
         title: PopupMenuButton(
           itemBuilder: (context) {
             return [
-              PopupMenuItem(
-                child: Text("Hech narsa kerak mas deb o'yladim"),
-              )
+              const PopupMenuItem(child: Text("Nima qoyishni bilmadim shera"),)
             ];
           },
-          child: const Row(
+          child: Row(
             children: [
               SizedBox(
-                width: 150,
-                child: Text("Toshkent,Buxoro,G'ijduvon tumani va boshqalar",style: TextStyle(color: Colors.white,fontSize: 15),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                width: width>1000?320:width>670?300:150,
+                child: const Text("Toshkent,Buxoro,G'ijduvon tumani va boshqalar",style: TextStyle(color: Colors.white,fontSize: 15),maxLines: 1,overflow: TextOverflow.ellipsis,),
               ),
-              Icon(CupertinoIcons.chevron_down,color: Colors.white,)
+              const Icon(CupertinoIcons.chevron_down,color: Colors.white,)
             ],
           ),
         ),
@@ -76,7 +75,7 @@ class _HomeState extends State<Home> {
                       currentLanguage = "assets/images/uzb.png";
                     });
                   },
-                  child: Image(
+                  child: const Image(
                     height: 40,
                     image: AssetImage("assets/images/uzb.png"),
                   ),
@@ -87,7 +86,7 @@ class _HomeState extends State<Home> {
                       currentLanguage = "assets/images/rus.png";
                     });
                   },
-                  child: Image(
+                  child: const Image(
                     height: 40,
                     image: AssetImage("assets/images/rus.png"),
                   ),
@@ -98,7 +97,7 @@ class _HomeState extends State<Home> {
                       currentLanguage = "assets/images/usa.png";
                     });
                   },
-                  child: Image(
+                  child: const Image(
                     height: 40,
                     image: AssetImage("assets/images/usa.png"),
                   ),
@@ -111,17 +110,17 @@ class _HomeState extends State<Home> {
                   width: 30,
                   image: AssetImage(currentLanguage),
                 ),
-                SizedBox(width: 5,),
-                Text(currentLanguage.split('/').last=="uzb.png"?"So'm":currentLanguage.split('/').last=="rus.png"?"₽":"\$",style: TextStyle(color: Colors.white),),
+                const SizedBox(width: 5,),
+                Text(currentLanguage.split('/').last=="uzb.png"?"So'm":currentLanguage.split('/').last=="rus.png"?"₽":"\$",style: const TextStyle(color: Colors.white),),
               ],
             ),
           ),
 
-          SizedBox(width: 10,),
+          const SizedBox(width: 10,),
         ],
         backgroundColor: Colors.purple,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50),
+          preferredSize: const Size.fromHeight(50),
           child: Container(
             width: double.infinity,
               decoration: BoxDecoration(
@@ -185,7 +184,7 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: 230,
                 child: Swiper(
-                  pagination: SwiperPagination(),
+                  pagination: const SwiperPagination(),
                   scrollDirection: Axis.horizontal,
                   itemCount: items.length,
                   itemBuilder: (context, index) {
@@ -201,18 +200,18 @@ class _HomeState extends State<Home> {
                     );
                   },
                 ),
-              ),//pastiga nuqtacha qo'shish kerak,
+              ),
               const SizedBox(height: 10,),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                height:  (items.length)*55,
+                height:  width>670?(items.length)*35:(items.length)*55,
                 child: GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 2/.9
+                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    crossAxisCount: width>670?3:2,
+                    childAspectRatio: width>1000?3.5/1:width>670?3/1:2/.9,
                   ),
                   itemCount: items.length,
                   itemBuilder: (context, index) {
@@ -230,14 +229,14 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 10,),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                height: products.length.isEven?products.length*187:(products.length-1)*209,
+                height: width>1000?products.length*130:products.length * 200,//products.length*MediaQuery.of(context).size.width/2,
                 child: GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisSpacing: 10,
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 1.8/3.4
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 10,
+                    crossAxisCount: width>1000?3:2,
+                    childAspectRatio: width>1000?1.2/1:width>670?1.8/2:1.8/3.4,
+                    crossAxisSpacing: 10,
                   ),
                   itemCount: products.length,
                   itemBuilder: (context, index) {
@@ -250,20 +249,20 @@ class _HomeState extends State<Home> {
         ),
       ),
       floatingActionButton: AnimatedSlide(
-        duration: Duration(milliseconds: 300),
-        offset: showFab ? Offset.zero : Offset(0, 2),
+        duration: const Duration(milliseconds: 300),
+        offset: showFab ? Offset.zero : const Offset(0, 2),
         child: AnimatedOpacity(
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           opacity: showFab ? 1 : 0,
           child: FloatingActionButton(
             backgroundColor: Colors.white,
             onPressed: () {
               setState(() {
-                scrollController.animateTo(1, duration: Duration(milliseconds: 400), curve: Curves.easeIn);
+                scrollController.animateTo(1, duration: const Duration(milliseconds: 400), curve: Curves.easeIn);
               });
             },
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-            child: Icon(CupertinoIcons.chevron_up),
+            child: const Icon(CupertinoIcons.chevron_up),
           )
         ),
       ),
@@ -287,6 +286,7 @@ class _HomeState extends State<Home> {
               Image(
                 image: AssetImage(product.img!),
                 height: 250,
+                width: double.infinity,
                 fit: BoxFit.cover,
               ),
               const Padding(
@@ -309,9 +309,9 @@ class _HomeState extends State<Home> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("${product.price} so'm",style: TextStyle(color: Colors.purple,fontWeight: FontWeight.bold,fontSize: 17),),
-              Text(product.title!,style: TextStyle(fontWeight: FontWeight.bold),),
-              Text(product.discription!,style: TextStyle(color: Colors.grey),maxLines: 2,overflow: TextOverflow.ellipsis,),
+              Text("${product.price} so'm",style: const TextStyle(color: Colors.purple,fontWeight: FontWeight.bold,fontSize: 17),),
+              Text(product.title!,style: const TextStyle(fontWeight: FontWeight.bold),),
+              Text(product.discription!,style: const TextStyle(color: Colors.grey),maxLines: 2,overflow: TextOverflow.ellipsis,),
             ],
           ),
         )

@@ -14,12 +14,12 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: Icon(CupertinoIcons.person_alt_circle_fill,color: Colors.grey,),
-        title: Text("Salom!",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),
+        leading: const Icon(CupertinoIcons.person_alt_circle_fill,color: Colors.grey,),
+        title: const Text("Salom!",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(CupertinoIcons.bell,color: Colors.purple,),
+            icon: const Icon(CupertinoIcons.bell,color: Colors.purple,),
           )
         ],
       ),
@@ -27,28 +27,28 @@ class _ProfileState extends State<Profile> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
               decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
                   boxShadow: [
                     BoxShadow(color: Colors.grey.withOpacity(.2),blurRadius: 4,spreadRadius: .8)
                   ]
               ),
               child: Container(
                 height: 80,
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                         decoration: BoxDecoration(
                             color: Colors.grey.shade200,
                             borderRadius: BorderRadius.circular(15)
                         ),
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -58,15 +58,15 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 7,),
+                    const SizedBox(width: 7,),
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                         decoration: BoxDecoration(
                             color: Colors.grey.shade200,
                             borderRadius: BorderRadius.circular(15)
                         ),
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -76,15 +76,15 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 7,),
+                    const SizedBox(width: 7,),
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                         decoration: BoxDecoration(
                             color: Colors.grey.shade200,
                             borderRadius: BorderRadius.circular(15)
                         ),
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -98,7 +98,7 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -118,7 +118,7 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Container(
               height: 100,
               decoration: BoxDecoration(
@@ -128,9 +128,9 @@ class _ProfileState extends State<Profile> {
                     BoxShadow(color: Colors.grey.withOpacity(.2),blurRadius: 4,spreadRadius: .8)
                   ]
               ),
-              margin: EdgeInsets.symmetric(vertical: 20),
-              padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-              child: Row(
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
@@ -171,8 +171,8 @@ class _ProfileState extends State<Profile> {
           padding: EdgeInsets.zero,
           child: Container(
             width: double.infinity,
-            margin: EdgeInsets.symmetric(vertical: 20),
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -180,18 +180,18 @@ class _ProfileState extends State<Profile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                    Text(title,style: const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                     discription!=null?
-                    Text(discription,style: TextStyle(color: Colors.grey,fontSize: 13),)
-                    :SizedBox()
+                    Text(discription,style: const TextStyle(color: Colors.grey,fontSize: 13),)
+                    :const SizedBox()
                   ],
                 ),
-                Icon(CupertinoIcons.chevron_forward,color: Colors.grey,)
+                const Icon(CupertinoIcons.chevron_forward,color: Colors.grey,)
               ],
             ),
           ),
         ),
-        isEnd?SizedBox():Divider(indent: 20,height: 1,),
+        isEnd?const SizedBox():const Divider(indent: 20,height: 1,),
       ],
     );
   }

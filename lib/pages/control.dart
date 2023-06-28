@@ -18,8 +18,7 @@ class _ControllState extends State<Controll> {
 
   @override
   Widget build(BuildContext context) {
-    return true?
-    CupertinoTabScaffold(
+    return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         backgroundColor: Colors.white,
 
@@ -40,48 +39,6 @@ class _ControllState extends State<Controll> {
         }
         return const SizedBox();
       },
-    )
-        :Scaffold(
-      body: PageView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: controller,
-        onPageChanged: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        children: const [
-           Home(),
-           Search(),
-           Profile()
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) {
-          setState(() {
-            controller.animateToPage(value, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-          });
-        },
-        selectedIconTheme: const IconThemeData(color: Colors.purple),
-        currentIndex: currentIndex,
-        items: const [
-          BottomNavigationBarItem(
-              label: "",
-              icon: Icon(CupertinoIcons.home)
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.manage_search),
-              label: ""
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person_pin),
-              label: ""
-          ),
-        ],
-      ),
     );
-  }
-  Widget b() {
-    return Container();
   }
 }
